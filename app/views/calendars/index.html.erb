@@ -1,4 +1,4 @@
-<div>
+<%# 2026/01/26 外側のdivタグが不要なので外しました。 %>
   <%= form_with model: @plan, url: calendars_path, class: 'form' do |f| %>
     <%= f.label :日付を選択, class: 'label' %>
     <%= f.date_field :date, class: 'date-select' %>
@@ -6,8 +6,6 @@
     <%= f.text_field :plan, class: 'text-input' %>
     <%= f.submit '保存' %>
   <% end %>
-</div>
-
 
 <%# 2026/01/22 外側のdivタグが不要なので外しました。 %>
 <div class='calendar'>
