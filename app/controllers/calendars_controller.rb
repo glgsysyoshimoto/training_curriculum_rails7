@@ -3,7 +3,7 @@ class CalendarsController < ApplicationController
   # １週間のカレンダーと予定が表示されるページ
   def index
     # 2026/01/26 命名規則に沿ってない。小文字のスネークケースに修正
-    get_Week
+    get_week
     # getWeek
     @plan = Plan.new
   end
