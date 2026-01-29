@@ -53,9 +53,10 @@ class CalendarsController < ApplicationController
         wday_num = wday_num -7
       end
       
-
+      # 2026/01/29 ハッシュロケットからシンボル型に記載を変更
+      days = { month: (@todays_date + x).month,date: (@todays_date + x).day,plans: today_plans,wday: wdays[wday_num]}
       # 2026/01/28 
-      days = { :month => (@todays_date + x).month, :date => (@todays_date + x).day, :plans => today_plans, :wday => wdays[wday_num]}      
+      # days = { :month => (@todays_date + x).month, :date => (@todays_date + x).day, :plans => today_plans, :wday => wdays[wday_num]}      
       # 2026/01/22 ハッシュロケットからシンボル型に記載を変更
       #days = { month: (@todays_date + x).month,date: (@todays_date+x).day,plans: today_plans}
       # days = { :month => (@todays_date + x).month, :date => (@todays_date+x).day, :plans => today_plans}
