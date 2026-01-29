@@ -1,4 +1,4 @@
-<div>
+<%# 2026/01/26 外側のdivタグが不要なので外しました。 %>
   <%= form_with model: @plan, url: calendars_path, class: 'form' do |f| %>
     <%= f.label :日付を選択, class: 'label' %>
     <%= f.date_field :date, class: 'date-select' %>
@@ -6,17 +6,15 @@
     <%= f.text_field :plan, class: 'text-input' %>
     <%= f.submit '保存' %>
   <% end %>
-</div>
-<div>
-  <div class='calendar'>
-    <% @week_days.each do |day| %>
-      <div class='item'>
-        <div class='date'>
+
+<%# 2026/01/22 外側のdivタグが不要なので外しました。 %>
+<div class='calendar'>
+  <% @week_days.each do |day| %>
+    <div class='item'>
+        <div class='date'>                     
           <%# 2026/01/28 日付を表示させたい %>
-          <%#=を追加した %>
-          <%= day[:month] %>/<%= day[:date] %>
-          <%# 2026/01/29 曜日を追記 %>
-          <%= day[:wday] %>
+          <%#=を追加した %><%# 2026/01/29 曜日を追記 %>
+          <%= day[:month] %>/<%= day[:date] %><%= day[:wday] %>
         </div>
         <ul class='content'>
         <% if day[:plans].length != 0 %>
@@ -25,7 +23,15 @@
           <% end %>
         <% end %>
         </ul>
+
       </div>
-    <% end %>
-  </div>
+      <ul class='content'>
+      <% if day[:plans].length != 0 %>
+        <% day[:plans].each do |plan| %>
+          <li class='plan-list'>・<%= plan %></li>
+        <% end %>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
 </div>
